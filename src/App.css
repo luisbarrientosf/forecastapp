@@ -4,6 +4,7 @@
 
 .AppMainContainer{
 	height: 100vh;
+	overflow-y: scroll;
 	padding-top: 5%;
 	background-color: #444444;
 }
