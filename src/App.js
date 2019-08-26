@@ -86,8 +86,6 @@ class App extends Component {
     return ( <Col><Row>{forecasts}</Row></Col>);
   }
 
-  
-
   render() {
     return (
       <div className="AppMainContainer">

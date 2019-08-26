@@ -105,5 +105,4 @@ class CityForecast extends Component{
   }
 }
 
-
 export default CityForecast;
