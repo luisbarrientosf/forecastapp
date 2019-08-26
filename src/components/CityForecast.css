@@ -1,0 +1,48 @@
+.cityForecastMainContainer{
+	background-color: #1f72ab;
+	color: white;
+	border-radius: 5px;
+	padding: 5px;
+	margin-bottom: 25px;
+}
+
+.cityForecastMainContainer .skyconContainer{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	height: 80px;
+	width: 160px;
+}
+
+.cityForecastMainContainer .cityForecastSummary{
+	text-align: center;
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+.cityForecastMainContainer .cityName{
+	font-size: 18px;
+	overflow-x: hidden;
+}
+
+.cityForecastMainContainer .cityTemperature{
+	font-size: 24px;
+	overflow-x: hidden;
+}
+
+.cityForecastMainContainer .cityTime{
+	font-size: 14px;
+	display: block;
+}
+
+.cityForecastMainContainer .cityDate{
+	font-size: 14px;
+	display: block;
+}
+
+.cityForecastDetails{
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	height: 120px;
+	padding-top: 10px;
+}
