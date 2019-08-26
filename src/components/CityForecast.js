@@ -67,7 +67,7 @@ class CityForecast extends Component{
   render(){
     return(
       <Col xs={9} sm={6} md={4} xl={3}>
-        <div className="cityForecastMainContainer">
+        <div className="cityForecastMainContainer night">
           <Row>
 
             <div>
