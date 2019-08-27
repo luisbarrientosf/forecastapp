@@ -15,43 +15,39 @@ class App extends Component {
       lastUpdate: null,
       forecasts: []
     }
+
     this.renderCities = this.renderCities.bind(this);
-    this.startUpdatesByCity = this.startUpdatesByCity.bind(this);
     this.getSocketForecastData = this.getSocketForecastData.bind(this);
+    this.initForecast = this.initForecast.bind(this);
+    this.initUpdateForecast = this.initUpdateForecast.bind(this);
   }
 
-  componentWillMount(){
-    this.initForecast();
-    socket.emit('get_data');
-    socket.on("get_forecast_data", this.getSocketForecastData);
-    
-    setInterval( () => { socket.emit('update_data') }, 10000);
-    setInterval( () => { socket.emit('get_data') }, 10000);
-  }
-
-  async initForecast(){
-    try {
-      const a = await get("init", { cities } );
-      this.startUpdatesByCity();
-    } catch(error) {
-      this.initForecast();
-    }
-  }
-
-  startUpdatesByCity(){
+  componentDidMount(){
     for (var i = 0; i < cities.length; i++) {
-      this.updateCityForecats(cities[i].name);
+      this.initForecast(cities[i]);
     }
-    this.setState({ lastUpdate: new Date().toString() });
+
+    socket.on("init_error", this.initForecast);
+    socket.on("init_completed", this.initUpdateForecast);
+
+    socket.on("update_error", this.updateForecast);
+    socket.on("update_completed", this.getSocketForecastData);
   }
 
-  async updateCityForecats(city){
-    try {
-      const a = await get("forecast", { city });
-    } catch(error) {
-      this.updateCityForecats(city);
-    }
+  initForecast(city){
+    socket.emit('init', city);
   }
+
+  initUpdateForecast(city){
+    const cityName = city.name; 
+    this.updateForecast(cityName);
+    setInterval( (cityName) => this.updateForecast(cityName) , 10000, cityName)
+  }
+
+  updateForecast(cityName){
+    socket.emit('update', cityName) 
+  }
+
 
   getSocketForecastData(forecasts){
     let parsedForecasts = [];
@@ -65,7 +61,7 @@ class App extends Component {
       parsedForecasts.push(forecast);
     }
 
-    this.setState({ forecasts: parsedForecasts });
+    this.setState({ forecasts: parsedForecasts, lastUpdate: new Date().toString() });
   }
 
 
