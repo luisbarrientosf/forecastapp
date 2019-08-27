@@ -29,7 +29,6 @@ class App extends Component {
 
     socket.on("init_error", this.initForecast);
     socket.on("init_completed", this.initUpdateForecast);
-
     socket.on("update_error", this.updateForecast);
     socket.on("update_completed", this.getSocketForecastData);
   }
