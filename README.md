@@ -15,6 +15,7 @@ The complete project has two related repositories.
 - Redis
 - Socket.io
 - Heroku
+- AWS
 
 ## Features
 
@@ -27,3 +28,4 @@ The complete project has two related repositories.
 ## Demo Links
 
 - https://ripleyforecastapp.herokuapp.com/
+- http://ec2-52-14-209-23.us-east-2.compute.amazonaws.com:8080/
