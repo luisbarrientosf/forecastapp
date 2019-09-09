@@ -6,7 +6,7 @@ The main goal of this technical test is to create an App capable of display the 
 
 The complete project has two related repositories.
 - App (This repository)
-- Server ([Link to repository](https://github.com/luisbarrientosf/ripleyforecastserver))
+- Server ([Link to repository](https://github.com/luisbarrientosf/forecastserver))
 
 ## Technologies
 
